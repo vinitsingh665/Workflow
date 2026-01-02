@@ -1,0 +1,334 @@
+/* Background:     #FCFCFB   (warm white)
+Surface:        #FFFFFF
+Gold Primary:   #C6A355
+Gold Subtle:    #EFE7D6
+Gold Border:    #E8DEC8
+Text Primary:   #1F1A17
+Muted Text:     #6B635E
+Shadow:         rgba(31, 26, 23, 0.08)
+Success:        #166534
+Danger:         #991B1B */
+
+:root {
+  --bg: #fcfcfb;
+  --surface: #ffffff;
+  --border: #e8dec8;
+  --text: #1f1a17;
+  --gold: #c6a355;
+}
+
+[data-theme="gold"] {
+  --bg: #fcfcfb;
+  --surface: #fffaf0;
+  --border: #e4d2a3;
+  --gold: #b8963f;
+}
+
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 1120px;
+  margin: 48px auto;
+  padding: 24px;
+}
+
+/* ================= NAVBAR ================= */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #ffffff;
+  border: 1px solid #e8dec8;
+  border-radius: 20px;
+  margin-bottom: 36px;
+  box-shadow: 0 12px 32px rgba(31, 26, 23, 0.06);
+}
+
+.nav-left {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-left a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  color: #c6a355;
+  position: relative;
+}
+
+.nav-left a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #c6a355;
+  transition: width 0.3s ease;
+}
+
+.nav-left a:hover::after {
+  width: 100%;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+button.primary {
+  background: linear-gradient(
+    135deg,
+    #c6a355,
+    #b08f3d
+  );
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(198, 163, 85, 0.35);
+}
+
+button.success {
+  background-color: #166534;
+  color: #ffffff;
+}
+
+button.danger {
+  background-color: #991b1b;
+  color: #ffffff;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid #e8dec8;
+  color: #1f1a17;
+}
+
+.logout-btn:hover {
+  background-color: #faf7f1;
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: #ffffff;
+  border: 1px solid #e8dec8;
+  border-radius: 22px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 18px 40px rgba(31, 26, 23, 0.08);
+}
+
+.request-card {
+  border: 1px solid #efe7d6;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 18px;
+  background-color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.request-card:hover {
+  box-shadow: 0 14px 30px rgba(31, 26, 23, 0.08);
+}
+
+/* ================= INPUTS ================= */
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 14px 0;
+  border-radius: 14px;
+  border: 1px solid #e8dec8;
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #c6a355;
+  box-shadow: 0 0 0 3px rgba(198, 163, 85, 0.18);
+}
+
+/* ================= TEXT ================= */
+h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: #6b635e;
+  font-size: 13px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background-color: #faf6eb;
+  color: #9a7c2f;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  margin-top: 16px;
+}
+
+.actions button {
+  margin-right: 12px;
+}
+
+/* ===== GOLD MICRO ANIMATIONS ===== */
+
+/* Soft gold glow on hover */
+.card:hover {
+  box-shadow: 0 20px 48px rgba(198, 163, 85, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Button micro lift */
+button:hover {
+  transform: translateY(-1.5px);
+}
+
+/* Badge pulse on hover */
+.badge {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.badge:hover {
+  background-color: #efe7d6;
+  transform: scale(1.03);
+}
+
+/* ===== AUDIT TABLE ===== */
+
+.table-wrapper {
+  margin-top: 18px;
+  overflow-x: auto;
+}
+
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.audit-table th,
+.audit-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #efe7d6;
+  font-size: 14px;
+}
+
+.audit-table th {
+  font-weight: 600;
+  color: #6b635e;
+  background-color: #faf7f1;
+}
+
+.audit-table tr:hover td {
+  background-color: #fafaf9;
+}
+
+/* ===== AUDIT HEADER ===== */
+.audit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+/* ===== EXPORT CSV BUTTON (LUXURY) ===== */
+.export-btn {
+  background: linear-gradient(
+    135deg,
+    #c6a355,
+    #b08f3d
+  );
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(198, 163, 85, 0.35);
+  transition: all 0.25s ease;
+}
+
+.export-btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 14px 36px rgba(198, 163, 85, 0.45);
+}
+
+/* ===== AUDIT TABLE ===== */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.audit-table th,
+.audit-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #efe7d6;
+  font-size: 14px;
+}
+
+.audit-table th {
+  background-color: #faf7f1;
+  font-weight: 600;
+  color: #6b635e;
+}
+
+.audit-table tr:hover td {
+  background-color: #fdfaf4;
+}
